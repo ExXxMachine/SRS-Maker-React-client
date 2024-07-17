@@ -1,0 +1,40 @@
+@import url("../../fonts/GilroyFont.css");
+.home__container {
+  padding: 5vh 10% 20vh 5%;
+  font-family: "Gilroy";
+  position: relative;
+  width: 100%;
+}
+
+.home__title {
+  font-weight: 700;
+  margin: 5% 0 0 2%;
+  font-size: 30px;
+}
+
+.home__paragraph {
+  margin: 2%;
+  font-size: 20px;
+}
+
+.home__list {
+  margin: 2%;
+  font-size: 20px;
+}
+
+li {
+  margin: 1%;
+}
+
+.home__list__noneStyle {
+  list-style-type: none;
+}
+
+@media screen and (max-width: 915px) {
+  .home__title {
+    margin: 10% 0 10% 0;
+  }
+  .home__list {
+    margin: 10% 0 10% 0;
+  }
+}

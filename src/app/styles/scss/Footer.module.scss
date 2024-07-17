@@ -1,0 +1,33 @@
+@import url('../../fonts/GilroyFont.css');
+@import 'vars';
+
+.footer__container {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	width: 99vw;
+	height: 10vh;
+	padding: 0 10% 0 10%;
+	color: $primary;
+	font-family: 'Gilroy';
+	font-weight: 500;
+	font-size: $fs-s;
+	background-color: $purple;
+}
+.footer__githubIco {
+	width: auto;
+	height: 70%;
+	filter: invert(100%);
+}
+.footer__githubLink {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 100%;
+}
+
+@media screen and (max-width: 915px) {
+	.footer__container {
+		height: 10vh;
+	}
+}

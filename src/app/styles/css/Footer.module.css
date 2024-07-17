@@ -1,0 +1,46 @@
+@import url("../../fonts/GilroyFont.css");
+.footer__container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  width: 99vw;
+  height: 10vh;
+  padding: 0 10% 0 10%;
+  color: #ffffff;
+  font-family: "Gilroy";
+  font-weight: 500;
+  font-size: 30px;
+  background-color: #9B51E0;
+}
+
+.footer__githubIco {
+  width: auto;
+  height: 70%;
+  -webkit-filter: invert(100%);
+          filter: invert(100%);
+}
+
+.footer__githubLink {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  height: 100%;
+}
+
+@media screen and (max-width: 915px) {
+  .footer__container {
+    height: 10vh;
+  }
+}
