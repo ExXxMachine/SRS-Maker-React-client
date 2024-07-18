@@ -34,3 +34,14 @@
   font-weight: 700;
   font-size: 25px;
 }
+
+.header__logOut {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.header__username {
+  color: #ffffff;
+  font-size: 35px;
+}

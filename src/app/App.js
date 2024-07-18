@@ -1,7 +1,11 @@
 import './App.css'
 import { Routes, Route } from 'react-router-dom'
 import { Header, Footer } from '../widgets/authWidgets'
-import { HomePage } from '../pages/authPages'
+import {
+	HomePage,
+	LoginPage,
+	SinginPage,
+} from '../pages/authPages'
 import './styles/css/rest.css'
 function App() {
 	return (
@@ -11,6 +15,8 @@ function App() {
 					<Route path='/' element={<Footer />}>
 						<Route path='/' element={<HomePage />} />
 					</Route>
+					<Route path='/login' element={<LoginPage />} />
+					<Route path='/singin' element={<SinginPage />} />
 				</Route>
 			</Routes>
 		</div>

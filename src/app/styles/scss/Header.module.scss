@@ -30,3 +30,12 @@
 	font-weight: 700;
 	font-size: $fs-xs;
 }
+
+.header__logOut {
+	display: flex;
+}
+
+.header__username {
+	color: $primary;
+	font-size: $fs-m;
+}

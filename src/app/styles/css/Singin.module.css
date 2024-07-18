@@ -1,0 +1,192 @@
+@import url("../../fonts/GilroyFont.css");
+.singin__container {
+  font-family: "Gilroy";
+  font-weight: 300;
+  height: 100vh;
+  width: 100vw;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.singin__block {
+  width: 500px;
+  height: 550px;
+  background-color: rgba(155, 81, 224, 0.6862745098);
+  border: #9B51E0 solid 3px;
+  border-radius: 10px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  z-index: 2;
+}
+
+form {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin-top: 5%;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 100%;
+  height: 90%;
+}
+
+input {
+  width: 80%;
+  border: 0 0 1px 0;
+}
+
+.singin__h1 {
+  font-family: "Gilroy";
+  font-weight: 700;
+  font-size: 40px;
+  color: #ffffff;
+}
+
+.form__group {
+  position: relative;
+  padding: 15px 0 0;
+  margin-top: 10px;
+  width: 70%;
+}
+
+.form__field {
+  font-family: inherit;
+  width: 100%;
+  border: 0;
+  border-bottom: 2px solid #ffffff;
+  outline: 0;
+  font-size: 1.3rem;
+  color: #ffffff;
+  padding: 7px 0;
+  background: transparent;
+  -webkit-transition: border-color 0.2s;
+  transition: border-color 0.2s;
+}
+.form__field::-webkit-input-placeholder {
+  color: transparent;
+}
+.form__field::-moz-placeholder {
+  color: transparent;
+}
+.form__field:-ms-input-placeholder {
+  color: transparent;
+}
+.form__field::-ms-input-placeholder {
+  color: transparent;
+}
+.form__field::placeholder {
+  color: transparent;
+}
+.form__field:-moz-placeholder-shown ~ .form__label {
+  font-size: 30px;
+  cursor: text;
+  top: 20px;
+}
+.form__field:-ms-input-placeholder ~ .form__label {
+  font-size: 30px;
+  cursor: text;
+  top: 20px;
+}
+.form__field:placeholder-shown ~ .form__label {
+  font-size: 30px;
+  cursor: text;
+  top: 20px;
+}
+
+.form__label {
+  position: absolute;
+  top: 0;
+  display: block;
+  -webkit-transition: 0.2s;
+  transition: 0.2s;
+  font-size: 1rem;
+  color: #ffffff;
+}
+
+.form__field:focus {
+  padding-bottom: 6px;
+  font-weight: 300;
+  border-width: 3px;
+  -o-border-image: #ffffff;
+     border-image: #ffffff;
+  border-image-slice: 1;
+}
+.form__field:focus ~ .form__label {
+  position: absolute;
+  top: 0;
+  display: block;
+  -webkit-transition: 0.2s;
+  transition: 0.2s;
+  font-size: 1rem;
+  color: #ffffff;
+  font-weight: 300;
+}
+
+/* reset input */
+.form__field:required, .form__field:invalid {
+  -webkit-box-shadow: none;
+          box-shadow: none;
+}
+
+.singin__ico {
+  position: absolute;
+  width: 10%;
+  height: auto;
+  right: 0;
+  -webkit-filter: invert(100%);
+          filter: invert(100%);
+}
+
+.singin__btn {
+  width: 71%;
+  height: 12%;
+  font-family: "Gilroy";
+  font-weight: 500;
+  font-size: 20px;
+  border-radius: 15px;
+  margin-top: 15%;
+  background-color: #ffffff;
+  border: none;
+}
+
+a.singin__reglink {
+  color: #ffffff;
+  margin-top: 5%;
+  text-decoration: underline;
+  font-size: 20px;
+}
+
+@media (max-width: 900px) {
+  .singin__block {
+    width: 100vw;
+    height: 100vh;
+    background-color: #9B51E0;
+    border-radius: 0;
+  }
+  input {
+    height: 7vh;
+  }
+}
+.singin__errorMess {
+  color: #ffffff;
+}
