@@ -1,0 +1,39 @@
+.ProjectList__container {
+	min-height: 90vh;
+	width: 100vw;
+	padding: 100px 0;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+.ProjectList__createBtn {
+	background-color: #9b51e0;
+	width: 70%;
+	padding: 25px 0;
+	font-size: 20px;
+	border-radius: 15px;
+	margin-bottom: 5vw;
+	transition: background-color ease 0.4s;
+}
+
+.ProjectList__createBtn:hover {
+	border: #9b51e0 solid 1px;
+	background-color: #7c42b1;
+}
+
+.ProjectList_title {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	color: #fff;
+	width: 70%;
+	padding: 0px 6%;
+	font-size: 20px;
+}
+
+.NoProjects{
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}

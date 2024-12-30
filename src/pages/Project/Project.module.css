@@ -1,0 +1,39 @@
+.Project_container {
+	min-height: 90vh;
+	padding: 5vh 12vw;
+}
+.Project_container ul{
+  padding: 0;
+}
+.Project__heading {
+	border: none;
+}
+
+.Project__heading:focus {
+	text-decoration: underline;
+}
+
+.Project_fieldBlock {
+	width: 100%;
+  display: flex;
+  flex-direction: column;
+  border: #fff solid 1px;
+  padding: 20px;
+  border-radius: 20px;
+  margin: 15px 0;
+}
+
+.Project_fieldInput{
+    overflow: hidden; 
+    resize: none; 
+    height: auto;
+    height: 100%;
+    padding: 20px;
+    margin-top: 10px;
+    border-radius: 15px;
+}
+
+.Project_fieldBlock strong{
+  font-weight: 700;
+  font-size: 20px;
+}

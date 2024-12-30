@@ -1,0 +1,47 @@
+@import url("../../app/fonts/GilroyFont.css");
+.header__container {
+  width: 99vw;
+  height: 10vh;
+  background-color: #9B51E0;
+  padding: 0 5% 0 5%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.header__logo {
+  height: 90%;
+  width: 40%;
+}
+
+.header__loginBtn {
+  padding: 5px 15px 5px 15px;
+  color: #fff;
+  border-radius: 7px;
+  font-family: "Gilroy";
+  font-weight: 700;
+  font-size: 25px;
+  border: #ffffff00 solid 2px;
+  transition: border ease 0.4s;
+}
+
+.header__loginBtn:hover {
+  border:#ffffff solid 2px;
+}
+
+.header__logOut {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.header__username {
+  color: #ffffff;
+  font-size: 35px;
+}
