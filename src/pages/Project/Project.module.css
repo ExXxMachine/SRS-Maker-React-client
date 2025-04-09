@@ -1,0 +1,173 @@
+.Project_container {
+	min-height: 90vh;
+	padding: 5vh 12vw;
+}
+.Project_container ul {
+	padding: 0;
+}
+.Project__heading {
+	border: none;
+}
+
+.Project__heading:focus {
+	text-decoration: underline;
+}
+
+.Project_fieldBlock {
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	border: #fff solid 1px;
+	padding: 20px;
+	border-radius: 20px;
+	margin: 15px 0;
+}
+
+.Project_fieldInput {
+	overflow: hidden;
+	resize: none;
+	height: auto;
+	height: 100%;
+	padding: 20px;
+	margin-top: 10px;
+	border-radius: 15px;
+}
+
+.Project_fieldBlock strong {
+	font-weight: 700;
+	font-size: 20px;
+}
+
+.Project_SaveDeleteBtn {
+	border: #fff solid 1px;
+	margin: 0 10px 0 0;
+	transition: background-color ease 1s;
+	transition: color ease 0.4s;
+}
+
+.Project_SaveDeleteBtn:hover {
+	background-color: #c0c0c0;
+	color: #1c1c1c;
+	border: #c0c0c0 solid 1px;
+}
+
+.Project__fieldName {
+	border: none;
+	font-size: 20px;
+}
+.Project__fieldName:focus {
+	text-decoration: underline;
+}
+
+.drag-handle {
+	cursor: move; /* или grab */
+	position: absolute;
+	top: -5px;
+	left: -20px;
+	width: 20px;
+	height: 20px;
+	background-color: #ccc;
+	border-radius: 50%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.chapterContainer {
+	margin-bottom: 2rem;
+	border: 1px solid #ddd;
+	border-radius: 15px;
+	padding: 1rem;
+	margin-top: 30px;
+}
+
+.chapterTitle {
+	font-size: 1.5rem;
+	margin-bottom: 1rem;
+	width: 100%;
+	padding: 0.5rem;
+	border: none;
+	border-bottom: 2px solid #333;
+}
+
+.fieldsList {
+	list-style: none;
+	padding: 0;
+	margin: 0;
+}
+
+.miniMenu {
+	position: absolute;
+	top: 0;
+	right: 5px;
+
+	padding: 5px;
+	display: flex;
+
+	gap: 5px;
+	z-index: 10;
+}
+
+.miniMenu button {
+	border: #fff solid 1px;
+	margin: 0 5px 0 0;
+	transition: background-color ease 1s;
+	transition: color ease 0.4s;
+}
+
+.Project_fieldBlock {
+	position: relative;
+}
+
+.chapterContainer {
+	position: relative;
+	padding: 20px;
+	border: 1px solid #ccc;
+	margin-bottom: 10px;
+	border-radius: 16px;
+}
+
+.miniMenu button {
+	font-size: 16px;
+	margin-top: 5px;
+	margin-bottom: 5px;
+	padding: 5px 10px;
+	cursor: pointer;
+	border-radius: 4px;
+	border: none;
+	border: 1px solid #ccc;
+	border-radius: 8px;
+}
+
+.chapterInput {
+	border: none;
+}
+
+.redirectLink {
+	border: 1px solid #ccc;
+	color: #fff;
+	padding: 10px 20px;
+	border-radius: 10px;
+	transition: background-color ease 1s;
+	transition: color ease 0.4s;
+}
+
+.redirectLink:hover {
+	background-color: #c0c0c0;
+	color: #1c1c1c;
+	border: #c0c0c0 solid 1px;
+}
+
+@media (max-width: 900px) {
+	.Project_container {
+		display: flex;
+		flex-direction: column;
+		padding: 5vh 2vw;
+	}
+	.Project_SaveDeleteBtn {
+		margin-top: 10px;
+	}
+	.Project_SaveDeleteBtn {
+		width: 99%;
+	}
+}

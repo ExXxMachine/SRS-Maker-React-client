@@ -1,0 +1,5 @@
+@import url("fonts/GilroyFont.css");
+body {
+	overflow-x: hidden;
+	font-family: "Gilroy";
+}

@@ -1,0 +1,27 @@
+.ErrorPage__container {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	min-height: 90vh;
+}
+
+.ErrorPage__container h1 {
+	color: #9b51e0;
+	font-size: 150px;
+	margin: 0;
+}
+
+.ErrorPage__container p {
+	font-size: 25px;
+}
+
+.ErrorPage__Link {
+	color: #9b51e0;
+	font-size: 20px;
+}
+
+.ErrorPage__Link:hover {
+	color: #9b51e0;
+	text-decoration: underline;
+}

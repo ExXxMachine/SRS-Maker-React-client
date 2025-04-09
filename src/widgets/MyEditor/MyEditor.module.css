@@ -1,0 +1,15 @@
+.MyEditor {
+	overflow: hidden;
+	resize: none;
+	height: auto;
+	height: 100%;
+	padding: 20px;
+	margin-top: 10px;
+	border-radius: 15px;
+	font-size: 16px;
+}
+
+.editorContainer textarea {
+	tab-size: 4 !important;
+	-moz-tab-size: 4 !important;
+}
