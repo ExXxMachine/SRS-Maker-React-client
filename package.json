@@ -28,6 +28,7 @@
     "react-router-dom": "^7.1.1",
     "react-textarea-autosize": "^8.5.8",
     "react-toastify": "^11.0.2",
+    "typed.js": "^2.1.0",
     "uuid": "^11.0.5"
   },
   "devDependencies": {

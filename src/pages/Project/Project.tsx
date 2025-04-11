@@ -4,6 +4,7 @@ import {
 	useGetProjectByIdQuery,
 	useUpdateProjectMutation,
 	useDeleteProjectMutation,
+	useGenerateProjectMutation,
 } from '../../app/store/slice/projectApi'
 import { useDispatch, useSelector } from 'react-redux'
 import { Helmet } from 'react-helmet'
@@ -34,6 +35,7 @@ const Project: React.FC = () => {
 	const { data, error, isLoading } = useGetProjectByIdQuery(id)
 	const [updateProject] = useUpdateProjectMutation()
 	const [deleteProject] = useDeleteProjectMutation()
+	const [generateProject] = useGenerateProjectMutation()
 
 	const projectName = useSelector((state: any) => state.project.name)
 	const projectData = useSelector((state: any) => state.project.data)
@@ -123,7 +125,7 @@ const Project: React.FC = () => {
 		const updatedData = projectData.map((chapter, index) => {
 			if (index === chapterIndex) {
 				const updatedFields = [...chapter.fields]
-				updatedFields.splice(fieldIndex, 1) 
+				updatedFields.splice(fieldIndex, 1)
 				return { ...chapter, fields: updatedFields }
 			}
 			return chapter
@@ -262,6 +264,42 @@ const Project: React.FC = () => {
 		handleExportToDOCX(projectName, projectData)
 	}
 
+	const handleGenerateContent = async () => {
+		toast.info('Начинается генерация контента...', { position: 'bottom-right' })
+		const updatedData = await Promise.all(
+			projectData.map(async chapter => {
+				const updatedFields = await Promise.all(
+					chapter.fields.map(async field => {
+						if (!field.fieldValue) {
+							const prompt = `На русском языке: Напиши ${chapter.chapterName} ${field.fieldName} для проекта ${projectName} используй строгий стиль как для документации и не рассуждай отвечай только то что нужно без лишних высказываний`
+							try {
+								const response = await generateProject(prompt).unwrap()
+								const content = response.choices[0].message.content
+								// Удаление мусора
+								const cleanContent = content.replace(/[*#]/g, '').trim()
+								// Добавление табуляции к переносам строк
+								const formattedContent = cleanContent.replace(/\n/g, '\t\n')
+								return { ...field, fieldValue: formattedContent }
+							} catch (error) {
+								console.error('Ошибка при генерации контента:', error)
+								toast.error(
+									`Ошибка при генерации контента для ${field.fieldName}`,
+									{ position: 'bottom-right' }
+								)
+								return field
+							}
+						}
+						return field
+					})
+				)
+				return { ...chapter, fields: updatedFields }
+			})
+		)
+		dispatch(updateProjectData(updatedData))
+		toast.success('Контент успешно сгенерирован!', { position: 'bottom-right' })
+	}
+
+
 	if (isLoading) return <Spinner />
 
 	if (error) {
@@ -305,6 +343,12 @@ const Project: React.FC = () => {
 					className={classesProject.Project_SaveDeleteBtn}
 				>
 					Удалить проект
+				</button>
+				<button
+					onClick={handleGenerateContent}
+					className={classesProject.Project_SaveDeleteBtn}
+				>
+					Генерировать контент
 				</button>
 				<Dropdown
 					handleExportPdf={handleSavePDF}

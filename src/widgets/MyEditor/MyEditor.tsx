@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import CodeEditor from '@uiw/react-textarea-code-editor'
 import classesMyEditor from './MyEditor.module.css'
 
@@ -24,6 +24,10 @@ const MyEditor: React.FC<MyEditorProps> = ({
 }) => {
 	const [code, setCode] = useState(field.fieldValue)
 
+	useEffect(() => {
+		setCode(field.fieldValue)
+	}, [field.fieldValue])
+
 	const handleCodeChange = (evn: React.ChangeEvent<HTMLTextAreaElement>) => {
 		setCode(evn.target.value)
 		handleFieldChange(chapterIndex, fieldIndex, evn.target.value)
@@ -38,7 +42,7 @@ const MyEditor: React.FC<MyEditorProps> = ({
 				padding={15}
 				className={classesMyEditor.MyEditor}
 				style={{
-					tabSize: 4, 
+					tabSize: 4,
 					fontFamily: 'monospace',
 					fontSize: '14px',
 				}}

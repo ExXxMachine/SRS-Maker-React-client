@@ -63,6 +63,7 @@ const projectSlice = createSlice({
 		updateProjectData(state, action: PayloadAction<ProjectChapter[]>) {
 			state.data = action.payload
 		},
+
 	},
 })
 
