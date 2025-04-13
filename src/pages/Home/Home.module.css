@@ -1,40 +1,116 @@
-@import url("../../app/fonts/GilroyFont.css");
+@import url('../../app/fonts/GilroyFont.css');
 .home__container {
-  padding: 5vh 10% 20vh 5%;
-  font-family: "Gilroy";
-  position: relative;
-  width: 100%;
+	padding: 5vh 5% 20vh 5%;
+	font-family: 'Gilroy';
+	position: relative;
+	width: 100%;
 }
 
 .home__title {
-  font-weight: 700;
-  margin: 5% 0 0 2%;
-  font-size: 30px;
+	font-weight: 700;
+	margin: 5% 0 0 2%;
+	font-size: 30px;
 }
 
 .home__paragraph {
-  margin: 2%;
-  font-size: 20px;
+	margin: 2%;
+	font-size: 20px;
+}
+
+.home__title,
+.home__paragraph {
+	opacity: 0;
+	transform: translateY(50px);
+	transition: transform 0.5s, opacity 0.5s;
 }
 
 .home__list {
-  margin: 2%;
-  font-size: 20px;
+	margin: 2%;
+	font-size: 20px;
 }
 
 li {
-  margin: 1%;
+	margin: 1%;
 }
 
 .home__list__noneStyle {
-  list-style-type: none;
+	list-style-type: none;
 }
 
 @media screen and (max-width: 915px) {
-  .home__title {
-    margin: 10% 0 10% 0;
-  }
-  .home__list {
-    margin: 10% 0 10% 0;
-  }
+	.home__title {
+		margin: 10% 0 10% 0;
+	}
+	.home__list {
+		margin: 10% 0 10% 0;
+	}
+}
+
+.title__block {
+	width: 100vw;
+	height: 50vh;
+	background: -webkit-linear-gradient(180deg, #9b51e0, #242424);
+	background: linear-gradient(180deg, #9b51e0, #242424);
+}
+
+.title__imgBlock {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 100%;
+}
+
+.title__img {
+	width: 100px;
+	height: auto;
+	margin: 0 20px; 
+}
+
+.cross {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	transform: rotate(45deg); 
+	margin: 0 20px; 
+}
+
+.about__block {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	padding: 50px;
+	border: 1px solid #ccc;
+	border-radius: 10px;
+	box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+	margin: 100px 0;
+	opacity: 0;
+	transform: translateY(50px);
+	transition: transform 0.5s, opacity 0.5s;
+}
+
+.about__block h2 {
+	font-size: 36px;
+	margin-bottom: 20px;
+}
+
+.about__block p {
+	font-size: 18px;
+	margin-bottom: 20px;
+	text-align: center;
+	max-width: 600px;
+}
+
+.about__block strong {
+	font-weight: bold;
+}
+.guide__block {
+	opacity: 0;
+	transform: translateY(50px);
+	transition: transform 0.5s, opacity 0.5s;
+}
+
+.show {
+	opacity: 1;
+	transform: translateY(0);
 }

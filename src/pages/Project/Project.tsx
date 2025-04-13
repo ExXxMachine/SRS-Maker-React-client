@@ -264,39 +264,71 @@ const Project: React.FC = () => {
 		handleExportToDOCX(projectName, projectData)
 	}
 
+
+
 	const handleGenerateContent = async () => {
-		toast.info('Начинается генерация контента...', { position: 'bottom-right' })
-		const updatedData = await Promise.all(
-			projectData.map(async chapter => {
-				const updatedFields = await Promise.all(
-					chapter.fields.map(async field => {
-						if (!field.fieldValue) {
-							const prompt = `На русском языке: Напиши ${chapter.chapterName} ${field.fieldName} для проекта ${projectName} используй строгий стиль как для документации и не рассуждай отвечай только то что нужно без лишних высказываний`
-							try {
-								const response = await generateProject(prompt).unwrap()
-								const content = response.choices[0].message.content
-								// Удаление мусора
-								const cleanContent = content.replace(/[*#]/g, '').trim()
-								// Добавление табуляции к переносам строк
-								const formattedContent = cleanContent.replace(/\n/g, '\t\n')
-								return { ...field, fieldValue: formattedContent }
-							} catch (error) {
-								console.error('Ошибка при генерации контента:', error)
-								toast.error(
-									`Ошибка при генерации контента для ${field.fieldName}`,
-									{ position: 'bottom-right' }
-								)
-								return field
-							}
-						}
-						return field
-					})
-				)
-				return { ...chapter, fields: updatedFields }
+		const toastId = toast.info(<div>Идет генерация контента</div>, {
+			position: 'bottom-right',
+			autoClose: false, 
+		})
+
+		let dots = ''
+		const intervalId = setInterval(() => {
+			dots += '.'
+			if (dots.length > 3) {
+				dots = ''
+			}
+			toast.update(toastId, {
+				render: <div>Идет генерация контента{dots}</div>,
+				position: 'bottom-right',
+				autoClose: false,
 			})
-		)
-		dispatch(updateProjectData(updatedData))
-		toast.success('Контент успешно сгенерирован!', { position: 'bottom-right' })
+		}, 500) // Обновляем каждые 500 мс
+
+		try {
+			const updatedData = await Promise.all(
+				projectData.map(async chapter => {
+					const updatedFields = await Promise.all(
+						chapter.fields.map(async field => {
+							if (!field.fieldValue) {
+								const prompt = `На русском языке: Напиши ${chapter.chapterName} ${field.fieldName} для проекта ${projectName} используй строгий стиль как для документации и не рассуждай отвечай только то что нужно без лишних высказываний`
+
+								try {
+									const response = await generateProject(prompt).unwrap()
+									const content = response.choices[0].message.content
+									const cleanContent = content.replace(/[*#]/g, '').trim()
+									const formattedContent = cleanContent.replace(/\n/g, '\t\n')
+									return { ...field, fieldValue: formattedContent }
+								} catch (error) {
+									console.error('Ошибка при генерации контента:', error)
+									toast.error(
+										`Ошибка при генерации контента для ${field.fieldName}`,
+										{ position: 'bottom-right' }
+									)
+									return field
+								}
+							}
+							return field
+						})
+					)
+					return { ...chapter, fields: updatedFields }
+				})
+			)
+			dispatch(updateProjectData(updatedData))
+			clearInterval(intervalId) 
+			toast.update(toastId, {
+				render: 'Контент успешно сгенерирован!',
+				type: 'success',
+				position: 'bottom-right',
+				autoClose: 2000, 
+			})
+		} catch (error) {
+			console.error('Ошибка при генерации контента:', error)
+			clearInterval(intervalId) 
+			toast.error('Ошибка при генерации контента!', {
+				position: 'bottom-right',
+			})
+		}
 	}
 
 
@@ -348,7 +380,7 @@ const Project: React.FC = () => {
 					onClick={handleGenerateContent}
 					className={classesProject.Project_SaveDeleteBtn}
 				>
-					Генерировать контент
+					Генерировать через AI
 				</button>
 				<Dropdown
 					handleExportPdf={handleSavePDF}

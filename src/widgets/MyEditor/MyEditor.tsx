@@ -22,11 +22,26 @@ const MyEditor: React.FC<MyEditorProps> = ({
 	field,
 	handleFieldChange,
 }) => {
-	const [code, setCode] = useState(field.fieldValue)
+	const [code, setCode] = useState('') 
+	const [index, setIndex] = useState(0) 
+
+	// Анимация набора текста
+	useEffect(() => {
+		if (field.fieldValue !== code) {
+			setCode('') 
+			setIndex(0)
+		}
+	}, [field.fieldValue])
 
 	useEffect(() => {
-		setCode(field.fieldValue)
-	}, [field.fieldValue])
+		if (index < field.fieldValue.length) {
+			const timeout = setTimeout(() => {
+				setCode(prev => prev + field.fieldValue[index]) // Постепенно добавляем символы
+				setIndex(prev => prev + 1) // Увеличиваем индекс
+			}, 1) 
+			return () => clearTimeout(timeout) // Очищаем таймер при размонтировании
+		}
+	}, [index, field.fieldValue])
 
 	const handleCodeChange = (evn: React.ChangeEvent<HTMLTextAreaElement>) => {
 		setCode(evn.target.value)
@@ -36,7 +51,7 @@ const MyEditor: React.FC<MyEditorProps> = ({
 	return (
 		<div className={classesMyEditor.editorContainer}>
 			<CodeEditor
-				value={code}
+				value={code} 
 				onChange={handleCodeChange}
 				language='text'
 				padding={15}

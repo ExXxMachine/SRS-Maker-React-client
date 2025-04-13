@@ -32,17 +32,16 @@ export const projectApi = createApi({
 		}),
 		generateProject: builder.mutation({
 			query: prompt => ({
-				// Принимаем только prompt
 				url: 'https://openrouter.ai/api/v1/chat/completions',
 				method: 'POST',
 				headers: {
 					Authorization:
-						'Bearer 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',
+						'Bearer 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',
 					'Content-Type': 'application/json',
 				},
 				body: JSON.stringify({
 					model: 'deepseek/deepseek-r1:free',
-					messages: [{ role: 'user', content: prompt }], // Используем переданный prompt
+					messages: [{ role: 'user', content: prompt }],
 					temperature: 0.1,
 					max_tokens: 2000,
 				}),
